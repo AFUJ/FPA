@@ -1,0 +1,70 @@
+Information Générale sur le script FPA Assistant aux messages Joomla.fr:
+
+Cet Assistant aux messages du forum Joomla.fr a été conçu pour aider les débutants sur le forum à publier des messages avec des informations systèmes pertinents, par exemple, des infos php et debug directement dans un post pré-formaté. Cela devrait économiser un temps précieux pour expliquer comment acquérir ces informations utiles pour vous aider à résoudre un problème.
+
+Ce script permet de recueillir des informations cohérentes, ce qui permet d'aider à établir rapidement des solutions pertinentes pour le problème spécifique observée par l'utilisateur.
+
+L'idée est de faire de la collecte de l'information, et de présenter correctement, aussi simplement que possible pour l'utilisateur final, un simple script d'une page, recueille automatiquement les infos lorsqu'il est exécuté depuis un navigateur Web et offre à l'utilisateur la possibilité d'inclure ou d'exclure des informations sensibles avant de «générer» le bbcode [BB] qui peut ensuite être copié et collé dans tout simplement dans un nouveau message sur le forum avec aucune autre interaction de l'utilisateur nécessaire après la publication.
+
+UTILISER À VOS PROPRES RISQUES : L'exactitude, l'exhaustivité de ce script et la documentation ne sont pas garanties et aucune responsabilité ne sera acceptée pour tout dommage, questions ou confusion causées par l'utilisation de versions contenues dans ces versions.
+
+Compatibilité:
+	PHP 4.1,PHP4, 5, 6DEV	  MySQL 3.2 - 5.5 	MySQLi from 4.1 ( @ >=PHP 4.4.9)
+ 	
+Support Version de Joomla! :
+	  | J!3.0 | J!2.5.xx | J!1.7.xx | J!1.6.xx | J1.5.xx |  J!1.0.xx  | 
+	
+Language Support:
+French (FR)
+D'autres versions sont disponibles depuis la version originale de FPA
+
+Problèmes connus:
+FPA n'est actuellement pas compatible avec des sites Joomla qui ont eu leur fichier configuration.php déplacé en dehors du répertoire public_html.
+
+Installation:
+1. Téléchargez l'archive souhaitée
+2. Décompressez le fichier de package téléchargé sur votre propre ordinateur (à l'aide de WinZip ou d'un outil de décompression natif).
+3. Lisez le fichier LISEZMOI inclus pour toutes les notes de versions spécifiques.
+4. LIRE le fichier de documentation inclus pour obtenir des instructions d'utilisation détaillées.
+5. Téléchargez le script fpa-fr.php à la racine de votre site Joomla!. C'est l'endroit que vous avez installé Joomla et ce n'est pas la racine principale de votre serveur. Voir les exemples ci-dessous.
+6. Exécutez le script via votre navigateur en tapant: http://www.votresite.com/fpa-fr.php et remplacer www.votresite.com par votre nom de domaine
+
+Exemples:
+Joomla! est installé dans votre répertoire web et vous avez installé la version française du fichier FPA: 
+Télécharger le script fpa-fr.php dans: <votre-nom-de-site.com>/public_html/
+Pour executer le script:  http://www.<votre-nom-de-site>.com/fpa-fr.php 
+
+Joomla! est installé dans un sous-répertoire nommé "cms" et vous avez installé la version française du fichier FPA:
+Télécharger le script fpa-fr.php dans:  <votre-nom-de-site.com>/public_html/cms/ 
+Pour executer le script:  http://www.<votre-nom-de-site>.com/cms/fpa-fr.php
+
+
+En raison de la nature très sensible de l'information affichée par le script FPA, il doit être retiré immédiatement du serveur après son utilisation.
+
+Pour supprimer le script de votre site, utilisez le lien de script de suppression fourni en haut de la page du script. Si le lien de suppression échoue pour supprimer le script, utilisez votre programme FTP pour le supprimer manuellement ou changer le nom une fois que le script a généré les données du site et le message publié sur le forum. Si le script est toujours présent sur le site, il peut être utilisé pour recueillir suffisamment d'informations pour pirater votre site. Le retrait du script empêche des étrangers de l'utiliser pour jeter un oeil à la façon dont votre site est structuré et de détecter les défauts qui peuvent être utilisé à vos dépends.
+
+Avertissement sur l'activation des mots de passe dans J! 3.2.0
+Pourquoi désactiver les mots de passe forts qui sont disponibles dans in 3.2.0?
+Cette option est recommandée si vous êtes:
+    A développer un site sur un serveur avec une version de php = or > 5.3.7 et que vous envisagez de passer à un serveur de production avec une version inférieure de php.
+    A Migrer d'un site à partir d'un serveur avec la version de php = or > 5.3.7 à un serveur avec une version inférieure de php.
+    Dégrader la version de votre serveur php vers la version 5.3.7.
+
+	Avec la sortie de Joomla! 3.2, le CMS a introduit une nouvelle fonctionnalité appelée, mots de passe forts. Le but était d'améliorer le cryptage et le stockage de mot de passe,
+    grâce à l'utilisation de bcrypt, augmentant ainsi la sécurité des Comptes d'utilisateurs de Joomla! 3.2 . Bcrypt n'était pas disponible au début du
+    rejets de php 5.3, et avec les premières versions d'un bug dans l'algorithme surface. Cela a incité un changement dans les versions PHP pour y remédier.
+
+    La série Joomla 3 nécessite une version minimum de php de 5.3+ qui comprend malheureusement des versions de php sans Bcrypt et la première version de Bcrypt.
+    La fonction des mots de passe fort fut construit dans une version testant la compatibilité pour déterminer si Bcrypt est disponible sur la base d'une vérification de la version de php
+    du serveur à de l'installation de Joomla. Le contrôle de version est utilisée afin de déterminer exactement ce que la fonction mots de passe forts permettrait, Bcrypt ou la prochaine
+    meilleur cryptage de hachage de mot de passe disponible disponible. Malheureusement, cela peut conduire à des problèmes d'accès dans certaines circonstances et provoque
+    certains utilisateurs le déploiement de nouveaux sites pour obtenir le déverrouillage de leur site avec aucunes solutions simples pour restaurer l'accès.
+	
+    En raison des éventuels problèmes avec certaines versions de PHP, le script FPA vous averti de versions de PHP 5.3 avant 5.3.7 comme étant versions "buggy".
+    Si votre site utilise la version 3.2.0 de J! et PHP supporte J! 3.2.0, ce champ sera noté comme "non" si la version de PHP est inférieure à 5.3.7.
+	
+	Pour plus d'informations sur cette question, voir:
+	http://community.joomla.org/blogs/leadership/1790-update-on-321-and-security-enhancements.html
+	et
+	http://docs.joomla.org/How_to_disable_the_Strong_Passwords_feature
+	
