@@ -2741,7 +2741,7 @@ function date_fr($format, $timestamp=false) {
 
 
 	//links for download that are found in the grey FPA box area.
-	echo '<div style="text-align:center;"><a style="color:#4D8000!important;" href="'. _RES_FPALINK .''. _RES_LANG .'" target="_github">'. _RES_FPALATEST .' '. _RES .'</a></div>';
+	echo '<div style="text-align:center;"><a style="color:#4D8000!important;" href="'. _RES_FPALINK .'" target="_github">'. _RES_FPALATEST .' '. _RES .'</a></div>';
 	echo '<div style="clear:both;"></div>';
 	echo "<p></p>";
 
@@ -6265,7 +6265,7 @@ function date_fr($format, $timestamp=false) {
 		echo '</div>';
 		echo '<div style="clear:both;"><br /></div>';
 
-		echo '<div style="text-align:center!important;"><a style="color:#4D8000!important;" href="'. _RES_FPALINK .''. _RES_LANG .'" target="_github">'. _RES_FPALATEST .' '. _RES .'</a></div>';
+		echo '<div style="text-align:center!important;"><a style="color:#4D8000!important;" href="'. _RES_FPALINK .'" target="_github">'. _RES_FPALATEST .' '. _RES .'</a></div>';
 		echo "<p></p>";
 
 		echo "<br></br><p>FPA " . _RES_VERSION . " " . _COPYRIGHT_STMT . " "  . _LICENSE_FOOTER . " "  . _LICENSE_LINK . "</p>";
