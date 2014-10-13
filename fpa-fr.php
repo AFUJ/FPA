@@ -92,10 +92,10 @@ function date_fr($format, $timestamp=false) {
 	define ( '_RES_BRANCH', 'Branche fr-FR' );    // can be playGround (Alpha/Beta only), currentDevelopment (RC only), masterPublic (Final only)
 	define ( '_RES_LANG', '&nbsp Language fr-FR' );               // Country/Language Code
 	// !TODO update this once the REPO is re-organised
-	define ( '_RES_FPALINK', 'https://github.com/ForumPostAssistant/FPA/tarball/en-GB/' ); // where to get the latest 'Final Releases'
+	define ( '_RES_FPALINK', 'https://github.com/AFUJ/FPA/archive/master.zip' ); // where to get the latest 'Final Releases'
 	define ( '_RES_FPALATEST', 'Télécharger la dernière version au format ZIP de l\'' );
-	define ( '_RES_FPALINK2', 'https://github.com/ForumPostAssistant/FPA/zipball/en-GB/' ); // where to get the latest 'Final Releases'
-	define ( '_RES_FPALATEST2', 'Télécharger la dernière version au format Tar.GZ de l\'' );
+
+
 
 
 
@@ -2744,7 +2744,7 @@ function date_fr($format, $timestamp=false) {
 	echo '<div style="text-align:center;"><a style="color:#4D8000!important;" href="'. _RES_FPALINK .''. _RES_LANG .'" target="_github">'. _RES_FPALATEST .' '. _RES .'</a></div>';
 	echo '<div style="clear:both;"></div>';
 	echo "<p></p>";
-	echo '<div style="text-align:center!important;"><a style="color:#4D8000!important;" href="'. _RES_FPALINK2 .''. _RES_LANG .'" target="_github">'. _RES_FPALATEST2 .' '. _RES .'</a><p></div>';
+
 	echo '</div>';
 	showDev ( $snapshot );
 	?>
@@ -6267,7 +6267,7 @@ function date_fr($format, $timestamp=false) {
 
 		echo '<div style="text-align:center!important;"><a style="color:#4D8000!important;" href="'. _RES_FPALINK .''. _RES_LANG .'" target="_github">'. _RES_FPALATEST .' '. _RES .'</a></div>';
 		echo "<p></p>";
-		echo '<div style="text-align:center!important;"><a style="color:#4D8000!important;" href="'. _RES_FPALINK2 .''. _RES_LANG .'" target="_github">'. _RES_FPALATEST2 .' '. _RES .'</a></div>';
+
 		echo "<br></br><p>FPA " . _RES_VERSION . " " . _COPYRIGHT_STMT . " "  . _LICENSE_FOOTER . " "  . _LICENSE_LINK . "</p>";
 		echo '</div>';
 
