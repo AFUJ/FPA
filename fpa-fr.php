@@ -69,7 +69,7 @@
 	}
 
 	define('_RES_VERSION', '1.4.5 (Ganymede)');
-	define('_last_updated', '23-Sep-2018');
+	define('_last_updated', '09-Oct-2018');
 	define('_COPYRIGHT_STMT', ' Copyright &copy 2011-' . @date_fr("Y") . ' Russell Winter, Phil DeGruy, Bernard Toplak, Claire Mandville, Sveinung Larsen, Adaptation et traduction pour joomla.fr par Yann Gomiero et Lomart. <br>');
 	define('_LICENSE_LINK', '<a href="http://www.gnu.org/licenses/" target="_blank">http://www.gnu.org/licenses/</a>'); // link to GPL license
 	define('_LICENSE_FOOTER', ' Le script FPA est fourni SANS AUCUNE GARANTIE. &nbsp; C\'est un logiciel libre,
@@ -80,9 +80,9 @@
 	define('_RES_BRANCH', 'Branche fr-FR'); // can be playGround (Alpha/Beta only), currentDevelopment (RC only), masterPublic (Final only)
 	define('_RES_LANG', '&nbsp Language fr-FR');   // Country/Language Code
 	// !TODO update this once the REPO is re-organised
-	define('_RES_FPALINK', 'https://github.com/ForumPostAssistant/FPA/tarball/en-GB/'); // where to get the latest 'Final Releases'
+	define('_RES_FPALINK', 'https://github.com/AFUJ/FPA/archive/1.4.5.tar.gz'); // where to get the latest 'Final Releases'
 	define('_RES_FPALATEST', 'Télécharger la dernière version en-GB au format tar.gz de l\'');
-	define('_RES_FPALINK2', 'https://github.com/AFUJ/FPA/archive/master.zip'); // where to get the latest 'Final Releases'
+	define('_RES_FPALINK2', 'https://github.com/AFUJ/FPA/archive/1.4.5.zip'); // where to get the latest 'Final Releases'
 	define('_RES_FPALATEST2', 'Télécharger la dernière version fr-FR au format ZIP de l\'');
 
 	/** DEFINE LANGUAGE STRINGS ************************************************************* */
@@ -170,10 +170,10 @@
 	define('_FPA_PRIVNONNOTE', 'Aucun élément n\'est masqué');
 	define('_FPA_PRIVPAR', 'Partiel');
 	define('_FPA_PRIVPARNOTE', 'Quelques éléments sont masqués');
-	// Add by LM
+	// Add by Lomart
 	define('_FPA_TARGET_BBCODE', 'BB-Code forum FR');
 	define('_FPA_TARGET_MARKDOWN', 'Markdown');
-	// Add by LM
+	// Add by Lomart
 	define('_FPA_PRIVSTR', 'Strict');
 	define('_FPA_PRIVSTRNOTE', 'Tous les éléments non identifiés sont masqués');
 	define('_FPA_CLICK', 'Cliquer ici pour générer le message');
@@ -255,7 +255,7 @@
 	define('_FPA_HOST', 'Serveur');
 	define('_FPA_TEC', 'Technologie');
 	define('_FPA_WSVR', 'Web Server');
-	define('_FPA_HIDDEN', 'protégé');
+	define('_FPA_HIDDEN', 'info masquée');
 	define('_FPA_PASS', 'Mot de passe');
 	define('_FPA_USER', 'Identifiant');
 	define('_FPA_USR', 'Utilisateur');
@@ -413,13 +413,13 @@
 		$showCoreEx = 1;
 	}
 
-	// begin LM for markdown
+	// begin Lomart for markdown
 	if (@$_POST['markdownOutput']) {
 		$markdownOutput = @$_POST['markdownOutput'];
 	} else {
 		$markdownOutput = 0; // default BBCode
 	}
-	// end LM
+	// end Lomart
 
 	/** TIMER-POPS ************************************************************************** */
 	// mt_get: returns the current microtime
@@ -3387,13 +3387,13 @@
 									} else {
 										$selectshowCoreEx = 'CHECKED';
 									}
-									// LM for markdown
+									// Lomart for markdown
 									if (@$_POST['markdownOutput'] == 0 AND @ $_POST['doIT'] == 1) {
 										$selectmarkdownOutput = '';
 									} else {
 										$selectmarkdownOutput = 'CHECKED';
 									}
-									// end LM
+									// end Lomart
 									if ($instance['instanceFOUND'] != _FPA_Y) {
 										$dis = 'DISABLED';
 									} else {
@@ -3425,7 +3425,7 @@
 										$selectshowProtected_1 = '';
 										$selectshowProtected_2 = 'CHECKED';
 									}
-									// LM for markdown
+									// Lomart for markdown
 									if ($markdownOutput == 0) {
 										$selectmarkdownOutput_1 = 'CHECKED';
 										$selectmarkdownOutput_2 = '';
@@ -3433,19 +3433,19 @@
 										$selectmarkdownOutput_1 = '';
 										$selectmarkdownOutput_2 = 'CHECKED';
 									}
-									// end LM for markdown
+									// end Lomart for markdown
 									?>
 
 									<strong>Informations sensibles :</strong><br />
 									<input style="font-size:9px;" type="radio" name="showProtected" value="1" <?php echo $selectshowProtected_1; ?> /><span class="alert-text"><?php echo _FPA_PRIVNON; ?></span><br /><span style="line-height:8px;padding:0px;margin:0px;margin-left:15px;font-size:8px;"><?php echo _FPA_PRIVNONNOTE; ?></span><br />
 									<input style="font-size:9px;" type="radio" name="showProtected" value="2" <?php echo $selectshowProtected_2; ?> /><span class="ok"><?php echo _FPA_PRIVPAR . ' (' . _FPA_DEF . ')'; ?></span><br /><span style="line-height:8px;padding:0px;margin:0px;margin-left:15px;font-size:8px;"><?php echo _FPA_PRIVPARNOTE; ?></span><br />
 
-									<!-- LM for markdown -->
+									<!-- Lomart for markdown -->
 									<br><strong>Format de sortie :</strong><br />
 										<input style="font-size:9px;" type="radio" name="markdownOutput" value="0" <?php echo $selectmarkdownOutput_1; ?> /><span class="normal"><?php echo _FPA_TARGET_BBCODE; ?></span><br />
 										<input style="font-size:9px;" type="radio" name="markdownOutput" value="1" <?php echo $selectmarkdownOutput_2; ?> /><span class="normal"><?php echo _FPA_TARGET_MARKDOWN; ?></span><br />
 
-										<!-- end LM for markdown -->
+										<!-- end Lomart for markdown -->
 								</div>
 
 								<div style="clear:both;"></div>
@@ -4224,7 +4224,7 @@
 											$bldcl = '';
 											$extenabled = '';
 										}
-										// add by LM : 'OR $deftempl == 1' to always display the default template
+										// add by Lomart : 'OR $deftempl == 1' to always display the default template
 										if ($show['type'] == _FPA_3PD OR $showCoreEx == 1 OR $deftempl == 1) {
 											if ($show['type'] == _FPA_3PD) {
 												echo '[color=Brown]' . $bldop . $show['name'] . ' (' . $show['version'] . ')' . $bldcl . '[/color]  ' . $extenabled . ' | ';
@@ -4239,7 +4239,7 @@
 						echo '[/quote]';
 						// --- end FR forum code
 					} else {
-						// ########################################## sortie markdown by LM ###########################################
+						// ########################################## sortie markdown by Lomart ###########################################
 						echo '# ' . _RES;
 						echo "\r\n";
 						echo 'Version FPA : ' . _RES_VERSION . ' - ' . @date_fr("j F Y");
@@ -4639,7 +4639,7 @@
 						// do the Database Statistics and Table information
 						if ($database['dbDOCHECKS'] == _FPA_Y AND @ $database['dbERROR'] == _FPA_N AND @ $_POST['showTables'] == '1' AND $database['dbHOSTINFO'] <> _FPA_U AND $instance['configDBTYPE'] <> 'postgresql' AND $instance['configDBTYPE'] <> 'pgsql') {
 							echo "\r\n\r\n";
-//						echo '#### Database Information ::"]';
+							//	#### Database Information ::"]';
 							echo '## ' . _FPA_DB . ' ' . _FPA_STATS;
 							echo "\r\n";
 							foreach ($database['dbHOSTSTATS'] as $show) {
@@ -5045,11 +5045,11 @@
 					echo '<span class="ok">' . _FPA_INS_7 . '</span>';
 					echo '<div style="clear:both;"><br /></div>';
 					echo '</div>';
-					// add by LM to remember to delete
+					// add by Lomart to remember to delete
 					echo '<div style="text-align:center">';
 					echo _FPA_DELNOTE_LN3;
 					echo '</div>';
-					// add by LM
+					// add by Lomart
 					?>
 
 					</form>
