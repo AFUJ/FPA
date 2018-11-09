@@ -7,7 +7,7 @@
 	/**
 	 * *  @package Forum Post Assistant / Bug Report Assistant
 	 * *  @version 1.4.5
-	 * *  @last updated 23/09/2018
+	 * *  @last updated 09/11/2018
 	 * *  @release Beta
 	 * *  @date 24/06/2011
 	 * *  @author RussW
