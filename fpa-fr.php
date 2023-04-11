@@ -1870,7 +1870,7 @@
 		} elseif ($instance['configDBTYPE'] == 'mysqli' AND $phpenv['phpSUPPORTSMYSQLI'] == _FPA_Y) { // mysqli
 			if (function_exists('mysqli_connect')) {
 				$dBconn = @new mysqli($instance['configDBHOST'], $instance['configDBUSER'], $instance['configDBPASS'], $instance['configDBNAME']);
-				$database['dbERROR'] = mysqli_connect_errno($dBconn) . ':' . mysqli_connect_error($dBconn);
+				$database['dbERROR'] = mysqli_connect_errno() . ':' . mysqli_connect_error();
 				$sql = "select name,type,enabled from " . $instance['configDBPREF'] . "extensions where type='plugin' or type='component' or type='module' or type='template'";
 				$result = @$dBconn->query($sql);
 				if ($result <> false) {
@@ -4246,24 +4246,24 @@
 						echo "\r\n";
 
 						// optional infos
-						if ($_POST['probDSC']) {
+						if (array_key_exists('probDSC',$_POST)) {
 							echo '**' . _FPA_PROB_DSC . '[**] :: ' . $_POST['probDSC'];
 							echo "\r\n";
 						}
-						if ($_POST['probMSG1']) {
+						if (array_key_exists('probMSG1',$_POST)) {
 							echo '**' . _FPA_PROB_MSG . '** :: ' . $_POST['probMSG1'];
 							echo "\r\n";
 						}
 
-						if ($phpenv['phpLASTERR'] AND $_POST['probMSG2']) {
+						if ($phpenv['phpLASTERR'] AND array_key_exists('probMSG2',$_POST)) {
 							echo '**' . _FPA_LAST . ' PHP ' . _FPA_ER . '** :: <span style="color:darkRed">' . $_POST['probMSG2'] . '</span>';
 							echo "\r\n";
-						} elseif (!@$phpenv['phpLASTERROR'] AND $_POST['probMSG2']) {
+						} elseif (!@$phpenv['phpLASTERROR'] AND array_key_exists('probMSG2',$_POST)) {
 							echo '**' . _FPA_PROB_MSG . '** :: ' . $_POST['probMSG2'];
 							echo "\r\n";
 						}
 
-						if ($_POST['probACT']) {
+						if (array_key_exists('probACT',$_POST)) {
 							echo '**' . _FPA_PROB_ACT . '** :: ' . $_POST['probACT'];
 							echo "\r\n";
 						}
@@ -4310,7 +4310,7 @@
 							}
 							echo $instance['configMODE'] . '</span>) | ';
 
-							if ($_POST['showProtected'] == '1') {
+							if (array_key_exists('showProtected',$_POST) && $_POST['showProtected'] == '1') {
 								echo '**' . _FPA_OWNER . ':** ' . $instance['configOWNER']['name'] . ' (uid: ' . isset($instance['configOWNER']['uid']) . '/gid: ' . isset($instance['configOWNER']['gid']) . ') | **' . _FPA_GROUP . ':** ' . $instance['configGROUP']['name'] . ' (gid: ' . isset($instance['configGROUP']['gid']) . ') | **Valid For:** ' . $instance['configVALIDFOR'];
 							} else {
 								echo '**' . _FPA_OWNER . ':**  <span style="color:darkOrange">--' . _FPA_HIDDEN . '--</span> . (uid: ' . isset($instance['configOWNER']['uid']) . '/gid: ' . isset($instance['configOWNER']['gid']) . ') | **' . _FPA_GROUP . ':**  <span style="color:darkOrange">--' . _FPA_HIDDEN . '--</span>  (gid: ' . isset($instance['configGROUP']['gid']) . ') | **Valid For:** ' . $instance['configVALIDFOR'];
@@ -4448,7 +4448,7 @@
 						} elseif (@$database['dbERROR'] != _FPA_N) {
 							echo '**' . _FPA_ECON . ':** ';
 
-							if ($_POST['showProtected'] == '3') {
+							if (array_key_exists('showProtected',$_POST) && $_POST['showProtected'] == '3') {
 								echo '<span style="color:darkOrange">**' . _FPA_PRIVSTR . '** ' . _FPA_INFOPRI . '</span>, ' . _FPA_BUT . ' <span style="color:red">' . _FPA_ER . '</span>.';
 							} else {
 								echo '<span style="color:red">' . @$database['dbERROR'] . '</span> : <span style="color:darkOrange">' . _FPA_DB . ' ' . _FPA_CREDPRES . '? ' . _FPA_IN . ' ' . _FPA_CFG . '...</span>';
@@ -4456,7 +4456,7 @@
 						} else {
 							echo '**' . _FPA_VER . ':** **' . $database['dbHOSTSERV'] . '** (Client:' . $database['dbHOSTCLIENT'] . ') | ';
 
-							if ($_POST['showProtected'] > '1') {
+							if (array_key_exists('showProtected',$_POST) && $_POST['showProtected'] > '1') {
 								echo '**' . _FPA_HOST . ':**  <span style="color:darkOrange">--' . _FPA_HIDDEN . '--</span> (<span style="color:darkOrange">--' . _FPA_HIDDEN . '--</span>) | ';
 							} else {
 								echo '**' . _FPA_HOST . ':** ' . $instance['configDBHOST'] . ' (' . $database['dbHOSTINFO'] . ') | ';
@@ -4580,7 +4580,7 @@
 
 								if ($show != $folders['ARRNAME']) {
 
-									if ($_POST['showProtected'] == '3') {
+									if (array_key_exists('showProtected',$_POST) && $_POST['showProtected'] == '3') {
 										echo '<span style="color:darkOrange">--' . _FPA_HIDDEN . '--</span> (';
 									} else {
 										echo $show . ' (';
@@ -5798,12 +5798,14 @@
 						$pieces = explode(" ", $show['CREATED']);
 						echo '<div style="font-size:9px;text-align:center;float:left;width:9%;">' . $pieces['0'] . '</div>';
 
-						$pieces = explode(" ", $show['UPDATED']);
-						echo '<div style="font-size:9px;text-align:center;float:left;width:9%;">' . $pieces['0'] . '</div>';
-
-						$pieces = explode(" ", $show['CHECKED']);
-						echo '<div style="font-size:9px;text-align:center;float:left;width:9%;">' . $pieces['0'] . '</div>';
-
+						if ( $show['UPDATED']) { 
+							$pieces = explode(" ", $show['UPDATED']);
+							echo '<div style="font-size:9px;text-align:center;float:left;width:9%;">' . $pieces['0'] . '</div>';
+						}
+						if ($show['CHECKED']) {
+							$pieces = explode(" ", $show['CHECKED']);
+							echo '<div style="font-size:9px;text-align:center;float:left;width:9%;">' . $pieces['0'] . '</div>';
+						}
 						echo '<br /></div>';
 					} // endif , dont show array name
 				} // end foreach
@@ -6416,7 +6418,7 @@
 
 			foreach ($folders as $i => $show) {
 
-				if ($show != 'Core Folders') {
+				if (($show != 'Core Folders') && ($show !='Répertoires Core')) {
 
 					// looking for --7 or -7- or -77 (default folder permissions are usually 755)
 					if (substr($modecheck[$show]['mode'], 1, 1) == '7' OR substr($modecheck[$show]['mode'], 2, 1) == '7') {
