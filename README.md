@@ -19,7 +19,7 @@ Elle inclut l'adaptation du texte et de la date en français et une conversion e
 Il s'agit d'un "**work in progress**" aussi n'hésitez pas à nous écrire si vous avez des questions ou vous souhaitez simplement nous aider.
 
 #### Support Version de Joomla! :
-J!4 | J!3.x | J!2.5.xx | J!1.7.xx | J!1.6.xx | J1.5.xx | J!1.0.xx |
+J!4.x | J!3.x | J!2.5.xx | J!1.7.xx | J!1.6.xx | J1.5.xx | J!1.0.xx |
 
 #### Utilisation
 
